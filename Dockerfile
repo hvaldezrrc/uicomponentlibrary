@@ -1,5 +1,5 @@
 # Build stage
-FROM node:18-alpine as build
+FROM node:20-alpine as build
 
 # Set working directory with the required name
 WORKDIR /valdez_hanz_ui_garden_build_checks
@@ -21,8 +21,8 @@ RUN npm run test:ci
 # Build the application
 RUN npm run build
 
-# Build storybook
-RUN npm run build-storybook
+# Note: Using pre-built storybook-static directory
+# RUN npm run build-storybook
 
 # Production stage
 FROM nginx:alpine
